@@ -10,7 +10,7 @@
 # - The astore root where to store kernel artifacts
 # - a directory to store astore meta data files
 
-set -ex
+set -e
 
 LIB_SH="$(dirname $(realpath $0))/lib.sh"
 . $LIB_SH

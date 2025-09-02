@@ -9,7 +9,7 @@
 # - a directory to store astore meta data files
 # - kernel label for creating bazel variable names
 
-set -ex
+set -e
 
 LIB_SH="$(dirname $(realpath $0))/lib.sh"
 . $LIB_SH
@@ -61,9 +61,6 @@ gen_artifact_desc() {
         echo "ERROR: Unable to read astore meta file: $astore_meta"
         exit 1
     fi
-
-# /builder/home/scratch-arm64-generic/kernel-builder/astore-meta/
-# vmlinuz-modules.tar.gz-6.3.12-1-1-1756418585-gb1b37559cc40-generic.json
 
     # Upcase arch and flavour
     local arch="$(echo -n $ARCH | tr [:lower:] [:upper:])"
