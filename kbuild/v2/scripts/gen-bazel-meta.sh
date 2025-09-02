@@ -98,7 +98,6 @@ gen_deb_flavours() {
 
         else
             echo "Skipping KERNEL_BIN for $ARCH-$f"
-
         fi
 
         ## deb-artifacts.tar.gz
