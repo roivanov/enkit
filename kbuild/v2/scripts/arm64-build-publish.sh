@@ -17,6 +17,9 @@ ASTORE_META_DIR="$8"
 
 TARGET="${ARCH}-${FLAVOUR}"
 
+
+export CROSS_COMPILE=aarch64-none-linux-gnu-
+
 if [ "$FLAVOUR" = "generic" ] ; then
 
      BUILD_DEB_DIR="$BUILD_ROOT/deb-build/${TARGET}"
