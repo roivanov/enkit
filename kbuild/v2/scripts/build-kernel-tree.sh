@@ -202,8 +202,7 @@ echo "$kernel_version" > "${build_dir}/enf-kernel-version.txt"
 
 case "$RT_ARCH" in
     arm64)
-    # export PKG_CONFIG_PATH=/usr/lib/aarch64-linux-gnu/pkgconfig:$PKG_CONFIG_PATH
-        arch_args="ARCH=$RT_ARCH CROSS_COMPILE=${CROSS_COMPILE:?}"
+        arch_args="ARCH=$RT_ARCH ${CROSS_COMPILE:+CROSS_COMPILE=$CROSS_COMPILE}"
         arch_image="Image"
         output_image="arch/arm64/boot/Image"
         ;;

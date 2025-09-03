@@ -17,8 +17,12 @@ ASTORE_META_DIR="$8"
 
 TARGET="${ARCH}-${FLAVOUR}"
 
-
-export CROSS_COMPILE=aarch64-none-linux-gnu-
+# detect cross-compile, we can only do arm64 on amd64, not vice versa
+if ! dpkg-architecture -e "$ARCH" ; then
+     export CROSS_COMPILE=aarch64-none-linux-gnu-
+     export DEB_HOST_ARCH="$ARCH"
+     export DEB_BUILD_PROFILES="cross nocheck"
+fi
 
 if [ "$FLAVOUR" = "generic" ] ; then
 
